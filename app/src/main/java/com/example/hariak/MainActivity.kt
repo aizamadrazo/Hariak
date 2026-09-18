@@ -1,6 +1,7 @@
 package com.example.hariak
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -15,39 +16,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.hariak.ui.theme.HariakTheme
 
-class Saludo
+class Ariketa(private val numHilo: Int) :Thread() {
+    override fun run() {
+        Log.e("HILO", "--- ARRANCA EL HILO Nº $numHilo")
+    }
 
-class MainActivity : AppCompatActivity() {
+}
+
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         for (i in 1..3) {
-            Saludo(i).start()
+            Ariketa(i).start()
         }
     }
 
 }
 
-@Composable
-
-fun Greeting(modifier: Modifier = Modifier) {
-    Button(
-        onClick={
-
-        }
-    ){
-        Text(
-            text = "Hello",
-        )
-    }
-
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    HariakTheme {
-        Greeting()
-    }
-}
