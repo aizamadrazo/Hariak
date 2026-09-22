@@ -19,6 +19,12 @@ import com.example.hariak.ui.theme.HariakTheme
 class Ariketa(private val numHilo: Int) :Thread() {
     override fun run() {
         Log.e("HILO", "--- ARRANCA EL HILO Nº $numHilo")
+        Log.e("HILO", "Nombre:$name")
+        Log.e("HILO", "Prioridad:$priority")
+        Log.e("HILO", "ID:$id")
+        Log.e("HILO", "Hilos activos: ${Thread.activeCount()}")
+        Log.e("HILO", "--- FIN HILO :$numHilo")
+
     }
 
 }
@@ -29,8 +35,22 @@ class MainActivity : ComponentActivity() {
         setContentView(R.layout.activity_main)
 
         for (i in 1..3) {
-            Ariketa(i).start()
+            val hilo = Ariketa(i)
+            hilo.name = "Hilo-$i"
+            hilo.priority = when (i){
+                1 -> Thread.MIN_PRIORITY
+                2 -> Thread.NORM_PRIORITY
+                3 -> Thread.MAX_PRIORITY
+
+                else -> Thread.NORM_PRIORITY
+            }
+            hilo.start()
         }
+        Log.d(
+                "MAIN",
+        "Se han creado los 3 hilos. Hilos activos: ${Thread.activeCount()}"
+        )
+
     }
 
 }
