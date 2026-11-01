@@ -1,3 +1,5 @@
+package com.example.hariak
+
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -23,15 +25,18 @@ class MainActivity : ComponentActivity() {
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Button(
-                            onClick = { startActivity(Intent(this@MainActivity, com.example.hariak.Metodo1Activity::class.java)) },                            modifier = Modifier.fillMaxWidth()
+                            onClick = { startActivity(Intent(this@MainActivity, Metodo1Activity::class.java)) },
+                            modifier = Modifier.fillMaxWidth()
                         ) { Text("Método 1: Thread") }
 
                         Button(
-                            onClick = { startActivity(Intent(this@MainActivity, com.example.hariak.Metodo2Activity::class.java)) },                            modifier = Modifier.fillMaxWidth()
+                            onClick = { startActivity(Intent(this@MainActivity, Metodo2Activity::class.java)) },
+                            modifier = Modifier.fillMaxWidth()
                         ) { Text("Método 2: Runnable") }
 
                         Button(
-                            onClick = { startActivity(Intent(this@MainActivity, com.example.hariak.Metodo3Activity::class.java)) },                            modifier = Modifier.fillMaxWidth()
+                            onClick = { startActivity(Intent(this@MainActivity, Metodo3Activity::class.java)) },
+                            modifier = Modifier.fillMaxWidth()
                         ) { Text("Método 3: lambda") }
                     }
                 }
