@@ -1,57 +1,41 @@
-package com.example.hariak
-
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.hariak.ui.theme.HariakTheme
-
-class Ariketa(private val numHilo: Int) :Thread() {
-    override fun run() {
-        Log.e("HILO", "--- ARRANCA EL HILO Nº $numHilo")
-        Log.e("HILO", "Nombre:$name")
-        Log.e("HILO", "Prioridad:$priority")
-        Log.e("HILO", "ID:$id")
-        Log.e("HILO", "Hilos activos: ${Thread.activeCount()}")
-        Log.e("HILO", "--- FIN HILO :$numHilo")
-
-    }
-
-}
+import androidx.compose.ui.unit.dp
 
 class MainActivity : ComponentActivity() {
+
+    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        for (i in 1..3) {
-            val hilo = Ariketa(i)
-            hilo.name = "Hilo-$i"
-            hilo.priority = when (i){
-                1 -> Thread.MIN_PRIORITY
-                2 -> Thread.NORM_PRIORITY
-                3 -> Thread.MAX_PRIORITY
+        setContent {
+            MaterialTheme {
+                Scaffold(topBar = { TopAppBar(title = { Text("Hilos: fábrica de galletas") }) }) { padding ->
+                    Column(
+                        modifier = Modifier.padding(padding).padding(24.dp).fillMaxSize(),
+                        verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Button(
+                            onClick = { startActivity(Intent(this@MainActivity, com.example.hariak.Metodo1Activity::class.java)) },                            modifier = Modifier.fillMaxWidth()
+                        ) { Text("Método 1: Thread") }
 
-                else -> Thread.NORM_PRIORITY
+                        Button(
+                            onClick = { startActivity(Intent(this@MainActivity, com.example.hariak.Metodo2Activity::class.java)) },                            modifier = Modifier.fillMaxWidth()
+                        ) { Text("Método 2: Runnable") }
+
+                        Button(
+                            onClick = { startActivity(Intent(this@MainActivity, com.example.hariak.Metodo3Activity::class.java)) },                            modifier = Modifier.fillMaxWidth()
+                        ) { Text("Método 3: lambda") }
+                    }
+                }
             }
-            hilo.start()
         }
-        Log.d(
-                "MAIN",
-        "Se han creado los 3 hilos. Hilos activos: ${Thread.activeCount()}"
-        )
-
     }
-
 }
-
