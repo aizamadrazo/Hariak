@@ -23,15 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Metodo1Activity"
-            android:exported="false" />
-        <activity
-            android:name=".Metodo2Activity"
-            android:exported="false" />
-        <activity
-            android:name=".Metodo3Activity"
-            android:exported="false" />
+
 
     </application>
 
