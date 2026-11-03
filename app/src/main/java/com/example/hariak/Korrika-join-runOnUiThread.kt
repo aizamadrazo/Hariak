@@ -69,7 +69,7 @@ class Korrhilo1(
 }
 
 
-
+/*
 @Composable
 fun Korrika2(){
 //val lock = Any()
@@ -111,8 +111,8 @@ fun Korrika2(){
         }
     }
 }
+*/
 
-/*
 @Composable
 fun Korrika2(){
 //val lock = Any()
@@ -127,6 +127,15 @@ fun Korrika2(){
         val atleta2 = Korrhilo1("Atleta2", lista, Helmuga1(), activity)
         atleta1.start()
         atleta2.start()
+
+        Thread {
+            atleta1.join()      // se queda aquí hasta que acabe el Atleta1
+            atleta2.join()      // y luego hasta que acabe el Atleta2
+            // llegados aquí, los dos han terminado
+            activity.runOnUiThread {
+                lista.add("CARRERA TERMINADA")
+            }
+        }.start()
     }
 
     // ---------- PANTALLA ----------
@@ -156,4 +165,3 @@ fun Korrika2(){
         }
     }
 }
-*/
