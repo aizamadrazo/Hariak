@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.dp
 import java.lang.Thread.sleep
 
 class Contador(var valor: Int = 0)
-class Hilo(
+class Hilo4(
     nombre: String,
     private val lock: Any,
     private val contador: Contador,
@@ -67,9 +67,9 @@ fun Metodo4(onVolver: () -> Unit) {
     val contador = Contador()
     val lock = Any()
     lineas.add("Empezamossss")
-    val hilo1 = Hilo("hilo1",lock, contador, lineas)
-    val hilo2 = Hilo("hilo2",lock, contador, lineas)
-    val hilo3 = Hilo("hilo3",lock, contador, lineas)
+    val hilo1 = Hilo4("hilo1",lock, contador, lineas)
+    val hilo2 = Hilo4("hilo2",lock, contador, lineas)
+    val hilo3 = Hilo4("hilo3",lock, contador, lineas)
 
         hilo1.start()
         hilo2.start()

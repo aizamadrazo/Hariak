@@ -14,23 +14,23 @@ import com.example.cronometro.Conometro
 import com.example.cronometro.Conometro2
 import com.example.cronometro.Conometro3
 
-/*
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Conometro3()
+            Korrika2()
         }
 
 
     }
 
 }
-*/
+
 
 // Las pantallas que existen
 
-
+/*
 enum class Destino { MENU, METODO1, METODO2, METODO3,METODO4,METODO5,METODO6 }
 
 
@@ -94,3 +94,4 @@ fun Menu(onElegir: (Destino) -> Unit) {
     }
 }
 
+*/
