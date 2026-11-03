@@ -9,15 +9,31 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-/*
-// Las pantallas que existen
-enum class Destino { MENU, METODO1, METODO2, METODO3,METODO4,METODO5,METODO6 }
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.cronometro.Conometro
 import com.example.cronometro.Conometro2
 import com.example.cronometro.Conometro3
 
-/**
+/*
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            Conometro3()
+        }
+
+
+    }
+
+}
+*/
+
+// Las pantallas que existen
+
+
+enum class Destino { MENU, METODO1, METODO2, METODO3,METODO4,METODO5,METODO6 }
+
+
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,9 +57,6 @@ class MainActivity : ComponentActivity() {
 
                 }
             }
-        }
-        setContent {
-            Conometro3()
         }
 
 
@@ -79,5 +92,5 @@ fun Menu(onElegir: (Destino) -> Unit) {
             }
         }
     }
-}*/
-*/
+}
+
