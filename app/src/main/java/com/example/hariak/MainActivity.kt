@@ -18,7 +18,7 @@ import com.example.cronometro.Conometro
 import com.example.cronometro.Conometro2
 import com.example.cronometro.Conometro3
 
-
+/**
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,4 +30,4 @@ class MainActivity : ComponentActivity() {
     }
 
 }
-
+*/
