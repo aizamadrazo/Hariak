@@ -9,7 +9,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-
+/*
 // Las pantallas que existen
 enum class Destino { MENU, METODO1, METODO2, METODO3,METODO4,METODO5,METODO6 }
 
@@ -69,4 +69,4 @@ fun Menu(onElegir: (Destino) -> Unit) {
             }
         }
     }
-}
+}*/
